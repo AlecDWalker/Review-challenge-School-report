@@ -1,10 +1,35 @@
 def report(string)
-  green_no = 0
-  array = string.split(',')
-  array.each do |grade|
-    if grade == 'Green'
-      green_no += 1
+  array = string.delete(' ').split(',')
+  green_no = array.count('Green')
+  amber_no = array.count('Amber')
+  red_no = array.count('Red')
+  error_no = array.count - (green_no + amber_no + red_no)
+  output = ""
+
+  if green_no > 0
+    output << "Green: #{green_no}"
+    if amber_no > 0 || red_no > 0 || error_no > 0
+      output << "\n"
     end
-  return "Green: #{green_no}"
   end
+
+  if amber_no > 0
+    output << "Amber: #{amber_no}"
+    if red_no > 0 || error_no > 0
+      output << "\n"
+    end
+  end
+
+  if red_no > 0
+    output << "Red: #{red_no}"
+    if error_no > 0
+      output << "\n"
+    end
+  end
+
+  if error_no > 0
+    output << "Errors: #{error_no}"
+  end
+
+  return output
 end
