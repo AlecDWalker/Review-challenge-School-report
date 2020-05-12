@@ -26,4 +26,8 @@ describe 'report' do
     expect(report('Green, False, Also false, Amber')).to eq "Green: 1\nAmber: 1\nErrors: 2"
   end
 
+  it 'should recognise upper and lower case entries' do
+    expect(report("Green, green, Amber, amber, Red, red")).to eq "Green: 2\nAmber: 2\nRed: 2"
+  end
+
 end

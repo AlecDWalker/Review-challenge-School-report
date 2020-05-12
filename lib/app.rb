@@ -1,8 +1,8 @@
 def report(string)
   array = string.delete(' ').split(',')
-  green_no = array.count('Green')
-  amber_no = array.count('Amber')
-  red_no = array.count('Red')
+  green_no = array.count('Green') + array.count('green')
+  amber_no = array.count('Amber')+ array.count('amber')
+  red_no = array.count('Red')+ array.count('red')
   error_no = array.count - (green_no + amber_no + red_no)
   output = ""
 
